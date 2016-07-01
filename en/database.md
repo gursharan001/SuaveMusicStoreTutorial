@@ -11,9 +11,7 @@ To learn more about Type Providers, check out [this resource](https://msdn.micro
 
 SQLProvider is example of a Type Provider library, which gives ability to cooperate with a relational database.
 We can install SQLProvider from NuGet:
-```install-package SQLProvider -includeprerelease```
-
-> Note: SQLProvider is marked on NuGet as a "prerelease". While it could be risky for more sophisticated queries, we are perfectly fine to use it in our case, as it fulfills all of our data access requirements.
+```install-package SQLProvider```
 
 If you're using Visual Studio, a dialog window can pop asking to confirm enabling the Type Provider. 
 This is just to notify about capability of the Type Provider to execute its custom code in design time.
@@ -36,7 +34,7 @@ Next, comes the most interesting part:
 ```fsharp
 type Sql = 
     SqlDataProvider< 
-        "Server=(LocalDb)\\v11.0;Database=SuaveMusicStore;Trusted_Connection=True;MultipleActiveResultSets=true", 
+        ConnectionString="Server=(LocalDb)\\v11.0;Database=SuaveMusicStore;Trusted_Connection=True;MultipleActiveResultSets=true", 
         DatabaseVendor=Common.DatabaseProviderTypes.MSSQLSERVER >
 ```
 
